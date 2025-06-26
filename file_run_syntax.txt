@@ -1,0 +1,12 @@
+for java code run
+
+jagdish@RJ:~/project/java$ javac -cp .:postgresql-42.7.3.jar BankApp.java
+jagdish@RJ:~/project/java$ java -cp .:postgresql-42.7.3.jar BankApp
+
+
+for cpp code run
+
+jagdish@RJ:~/project/cpp$ g++ project11.cpp -o bankapp -I/usr/include/postgresql -lpq
+jagdish@RJ:~/project/cpp$ ./bankapp
+
+

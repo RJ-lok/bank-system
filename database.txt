@@ -1,0 +1,49 @@
+4416786@mit
+
+jagdish@RJ:~$ sudo -i -u postgres
+
+[sudo] password for jagdish: 
+
+postgres@RJ:~$ psql
+
+postgres=# create database bank;
+
+CREATE DATABASE
+
+postgres=# \c bank;
+
+You are now connected to database "bank" as user "postgres".
+                      ^
+bank=# create table bank(customer_id int primary key,account_number bigint,customer_name varchar(20),account_type varchar(10),address text,mobile bigint,balance float);
+
+CREATE TABLE
+
+bank=# \d bank;
+                           Table "public.bank"
+     Column     |         Type          | Collation | Nullable | Default 
+----------------+-----------------------+-----------+----------+---------
+ customer_id    | integer               |           | not null | 
+ account_number | bigint                |           |          | 
+ customer_name  | character varying(20) |           |          | 
+ account_type   | character varying(10) |           |          | 
+ address        | text                  |           |          | 
+ mobile         | bigint                |           |          | 
+ balance        | double precision      |           |          | 
+Indexes:
+    "bank_pkey" PRIMARY KEY, btree (customer_id)
+
+bank=# select*from bank;
+ customer_id | account_number | customer_name | account_type | address |  mobile   | balance 
+-------------+----------------+---------------+--------------+---------+-----------+---------
+        3156 |   867578622954 | jagdish       | saving       | alandi  | 992123133 |   10000
+(1 row)
+
+
+
+
+bank=# CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE
