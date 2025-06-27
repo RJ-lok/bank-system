@@ -35,7 +35,7 @@ Indexes:
 bank=# select*from bank;
  customer_id | account_number | customer_name | account_type | address |  mobile   | balance 
 -------------+----------------+---------------+--------------+---------+-----------+---------
-        3156 |   867578622954 | jagdish       | saving       | alandi  | 992123133 |   10000
+        3156 |   867578622954 | Rutuja        | saving       | alandi  | 992123133 |   10000
 (1 row)
 
 
