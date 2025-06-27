@@ -115,7 +115,6 @@ void change_mobile_by_id() {
     PQclear(res);
     PQfinish(conn);
 }
-
 void transfer_money() {
     int sender_id, receiver_id;
     float amount;
@@ -143,8 +142,20 @@ void transfer_money() {
         return;
     }
 
+    string receiver_query = "SELECT balance FROM bank WHERE customer_id = " + to_string(receiver_id) + ";";
+    PGresult *res_receiver = PQexec(conn, receiver_query.c_str());
+
+    if (PQntuples(res_receiver) != 1) {
+        cout << "Receiver not found.\n";
+        PQclear(res_sender);
+        PQclear(res_receiver);
+        PQfinish(conn);
+        return;
+    }
+
     float sender_balance = stof(PQgetvalue(res_sender, 0, 0));
     PQclear(res_sender);
+    PQclear(res_receiver);
 
     if (sender_balance < amount) {
         cout << "Insufficient balance.\n";
