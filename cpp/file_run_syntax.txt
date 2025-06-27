@@ -1,0 +1,8 @@
+  
+  
+  
+  
+  
+  
+                1.  g++ project11.cpp -o bankapp -I/usr/include/postgresql -lpq
+                2.  ./bankapp
